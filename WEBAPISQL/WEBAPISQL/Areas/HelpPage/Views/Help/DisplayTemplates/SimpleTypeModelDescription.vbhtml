@@ -1,0 +1,3 @@
+@Imports WEBAPISQL.Areas.HelpPage.ModelDescriptions
+@ModelType SimpleTypeModelDescription
+@Model.Documentation
