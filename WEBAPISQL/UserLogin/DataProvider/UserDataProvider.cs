@@ -17,20 +17,30 @@ namespace UserLogin.DataProvider
 
         public async Task AddUser(User user)
         {
-            using (var sqlConnection = new SqlConnection(connectionString))
-            {
-                await sqlConnection.OpenAsync();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@UserId", user.UserId);
-                dynamicParameters.Add("@UserName", user.UserName);
-                dynamicParameters.Add("@Email", user.Email);
-                dynamicParameters.Add("@Password", user.Password);
 
-                await sqlConnection.ExecuteAsync(
-                    "spAddUser",
-                    dynamicParameters,
-                    commandType: CommandType.StoredProcedure);
+            try
+            {
+                using (var sqlConnection = new SqlConnection(connectionString))
+                {
+                    await sqlConnection.OpenAsync();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@UserId", user.UserId);
+                    dynamicParameters.Add("@UserName", user.UserName);
+                    dynamicParameters.Add("@Email", user.Email);
+                    dynamicParameters.Add("@Password", user.Password);
+
+                    await sqlConnection.ExecuteAsync(
+                        "spAddUser",
+                        dynamicParameters,
+                        commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public async Task DeleteUser(int UserId)

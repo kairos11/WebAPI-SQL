@@ -36,8 +36,9 @@ namespace UserLogin
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "api",
+                    //template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "api/{controller=Home}/{action=Index}/{id?}");
             });
 
             //if (env.IsDevelopment())

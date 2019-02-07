@@ -39,8 +39,8 @@ namespace UserLogin.Controllers
             await this.userDataProvider.AddUser(user);
         }
 
-        [HttpPut("{id")]
-        public async Task Put(int UserId, [FromBody] User user)
+        [HttpPut("{id}")]
+        public async Task Put(int UserId, [FromBody]User user)
         {
             await this.userDataProvider.UpdateUser(user);
         }
