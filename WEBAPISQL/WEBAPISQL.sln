@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WEBAPISQL", "WEBAPISQL\WEBAPISQL.vbproj", "{BB49B939-2422-4082-BDE2-193B60FC73E1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDataAccess", "EmployeeDataAccess\EmployeeDataAccess.csproj", "{251A9C5A-F2D8-4230-ABC9-9C5C5EEC63B3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLogin", "UserLogin\UserLogin.csproj", "{BA120F2B-9447-45F7-BFB6-86F6E0657985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserLogin", "UserLogin\UserLogin.csproj", "{BA120F2B-9447-45F7-BFB6-86F6E0657985}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB49B939-2422-4082-BDE2-193B60FC73E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB49B939-2422-4082-BDE2-193B60FC73E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB49B939-2422-4082-BDE2-193B60FC73E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB49B939-2422-4082-BDE2-193B60FC73E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{251A9C5A-F2D8-4230-ABC9-9C5C5EEC63B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{251A9C5A-F2D8-4230-ABC9-9C5C5EEC63B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{251A9C5A-F2D8-4230-ABC9-9C5C5EEC63B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{251A9C5A-F2D8-4230-ABC9-9C5C5EEC63B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA120F2B-9447-45F7-BFB6-86F6E0657985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA120F2B-9447-45F7-BFB6-86F6E0657985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA120F2B-9447-45F7-BFB6-86F6E0657985}.Release|Any CPU.ActiveCfg = Release|Any CPU
