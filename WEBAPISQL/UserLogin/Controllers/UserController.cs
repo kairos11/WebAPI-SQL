@@ -39,13 +39,13 @@ namespace UserLogin.Controllers
             await this.userDataProvider.AddUser(user);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{UserId}")]
         public async Task Put(int UserId, [FromBody]User user)
         {
             await this.userDataProvider.UpdateUser(user);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{UserId}")]
         public async Task Delete(int UserId)
         {
             await this.userDataProvider.DeleteUser(UserId);

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.IdentityModel.Protocols; //Added 02 08 2019
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +12,9 @@ namespace UserLogin.DataProvider
 {
     public class UserDataProvider : IUserDataProvider
     {
-        private readonly string connectionString = "Server=.\\SQL2014;Database=Master;Trusted_Connection=True;";
+        //private readonly string connectionString = "Server=.\\SQL2014;Database=Master;Trusted_Connection=True;";
+
+        private readonly string connectionString = "Server = tcp:mymasterapiserver.database.windows.net,1433;Initial Catalog = MasterApi; Persist Security Info=False;User ID = dev; Password=D3v@piServer; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
 
         private SqlConnection sqlConnection;
 
@@ -40,7 +43,7 @@ namespace UserLogin.DataProvider
 
                 throw;
             }
-           
+
         }
 
         public async Task DeleteUser(int UserId)
@@ -85,19 +88,27 @@ namespace UserLogin.DataProvider
 
         public async Task UpdateUser(User user)
         {
-            using (var sqlConnection = new SqlConnection(connectionString))
+            try
             {
-                await sqlConnection.OpenAsync();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@UserId", user.UserId);
-                dynamicParameters.Add("@UserName", user.UserName);
-                dynamicParameters.Add("@Email", user.Email);
-                dynamicParameters.Add("@Password", user.Password);
-                await sqlConnection.ExecuteAsync(
-                    "spUpdateUser",
-                    dynamicParameters,
-                    commandType: CommandType.StoredProcedure);
+                using (var sqlConnection = new SqlConnection(connectionString))
+                {
+                    await sqlConnection.OpenAsync();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@UserId", user.UserId);
+                    dynamicParameters.Add("@UserName", user.UserName);
+                    dynamicParameters.Add("@Email", user.Email);
+                    dynamicParameters.Add("@Password", user.Password);
+                    await sqlConnection.ExecuteAsync(
+                        "spUpdateUser",
+                        dynamicParameters,
+                        commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Generic Exception Handler: {0}", e.ToString());
+            }
+
         }
 
 
