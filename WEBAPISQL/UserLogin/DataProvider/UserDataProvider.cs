@@ -18,6 +18,32 @@ namespace UserLogin.DataProvider
 
         private SqlConnection sqlConnection;
 
+
+        public async Task AddQRScan(string qRScanned)
+        {
+            try
+            {
+                if (!qRScanned.Equals(string.Empty) || qRScanned != null || qRScanned != "")
+                {
+                    using (var sqlConnection = new SqlConnection(connectionString))
+                    {
+                        await sqlConnection.OpenAsync();
+                        var dynamicParamaters = new DynamicParameters();
+                        //dynamicParamaters.Add("@ID", qRScanned.ID);
+                        dynamicParamaters.Add("@ScannedQR", qRScanned);
+
+                        await sqlConnection.ExecuteAsync(
+                            "spAddQR", dynamicParamaters, commandType: CommandType.StoredProcedure);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public async Task AddUser(User user)
         {
 
@@ -38,10 +64,9 @@ namespace UserLogin.DataProvider
                         commandType: CommandType.StoredProcedure);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("Generic Exception Handler: {0}", e.ToString());
             }
 
         }

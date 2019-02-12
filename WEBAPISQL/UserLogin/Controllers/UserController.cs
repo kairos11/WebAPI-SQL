@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserLogin.DataProvider;
 using UserLogin.Models;
+using UserLogin.Common;
 
 namespace UserLogin.Controllers
 {
@@ -16,7 +17,7 @@ namespace UserLogin.Controllers
 
         private IUserDataProvider userDataProvider;
 
-        public UserController( IUserDataProvider userDataProvider)
+        public UserController(IUserDataProvider userDataProvider)
         {
             this.userDataProvider = userDataProvider;
         }
@@ -49,6 +50,15 @@ namespace UserLogin.Controllers
         public async Task Delete(int UserId)
         {
             await this.userDataProvider.DeleteUser(UserId);
+        }
+
+        [Route("QRScan")]
+        [HttpPost]
+        public async Task PostQR(string qRScanned)
+        {
+
+            await this.userDataProvider.AddQRScan(qRScanned);
+
         }
     }
 }

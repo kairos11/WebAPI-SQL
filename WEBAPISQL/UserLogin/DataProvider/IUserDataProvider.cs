@@ -18,5 +18,7 @@ namespace UserLogin.DataProvider
         Task UpdateUser(User product);
 
         Task DeleteUser(int UserId);
+
+        Task AddQRScan(string product);
     }
 }
