@@ -14,7 +14,7 @@ namespace UserLogin.DataProvider
     {
         //private readonly string connectionString = "Server=.\\SQL2014;Database=Master;Trusted_Connection=True;";
 
-        private readonly string connectionString = "Server = tcp:mymasterapiserver.database.windows.net,1433;Initial Catalog = MasterApi; Persist Security Info=False;User ID = dev; Password=D3v@piServer; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
+        private readonly string connectionString = "Server = tcp:mymasterapiserver.database.windows.net,1433;Initial Catalog = MasterApi; Persist Security Info=False;User ID = (youruser); Password=(yourpassword); MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
 
         private SqlConnection sqlConnection;
 
